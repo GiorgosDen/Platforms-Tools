@@ -1,12 +1,7 @@
 Node-Red
 
 General:
-Node-RED is an open-source platform (developed with JavaScript), that provides a browser-based editor 
-that makes it easy to wire together flows using a wide range of nodes. It has compelling documentation 
-and community, that makes it simple to start the road map in Node-RED. From the official site (https://nodered.org/) 
-you can find the appropriate guidance to install Node-RED, locally, on a device (ex. Raspberry), or in the cloud. 
-I choose to use Node-RED locally and a simple way for this is, by following the README file from the GitHub repository
-(https://github.com/node-red/node-red/tree/master).
+Node-RED is an open-source platform (developed with JavaScript), that provides a browser-based editor that makes it easy to wire together flows using a wide range of nodes. It has compelling documentation and community, that makes it simple to start the road map in Node-RED. From the official site (https://nodered.org/) you can find the appropriate guidance to install Node-RED, locally, on a device (ex. Raspberry), or in the cloud. I choose to use Node-RED locally and a simple way for this is, by following the README file from the GitHub repository (https://github.com/node-red/node-red/tree/master).
 
 
 MQTT Broken (Mosquitto):
