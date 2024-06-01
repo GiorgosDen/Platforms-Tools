@@ -27,3 +27,8 @@ In node-red, you can download an extra palet/library, the node-red-node-mysql,
 which can connect a MySQL server with node-red. More specifically, with "mysql" node (from node-red-node-mysql), 
 you can add a new connection with MySQL DB. 
 More information about that can be found in this video: https://www.youtube.com/watch?v=w1SRebmR_NY
+
+More
+More Node-red is a powerful tool with many applications. In this repository, I made a report on only 3 applications, 
+I had used. In the future, I will add more about Node-Red.
+
