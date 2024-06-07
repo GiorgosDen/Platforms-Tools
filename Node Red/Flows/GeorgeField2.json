@@ -1,0 +1,1188 @@
+[
+    {
+        "id": "b49b968cd042191b",
+        "type": "tab",
+        "label": "GeorgeField2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c67f555fb592112a",
+        "type": "ui_gauge",
+        "z": "b49b968cd042191b",
+        "name": "",
+        "group": "2e25f2a53aa3db9d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Air Tempature (Sensor9)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-15",
+        "max": "45",
+        "colors": [
+            "#0000ff",
+            "#00ff00",
+            "#ff0000"
+        ],
+        "seg1": "5",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 930,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c7ccf3d4cbfc9ac1",
+        "type": "mqtt in",
+        "z": "b49b968cd042191b",
+        "name": "GetTemp",
+        "topic": "TempSensorData2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "71e366b4088e1fb7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "c67f555fb592112a",
+                "03398392bba91f84",
+                "ba431fb896fffeee"
+            ]
+        ]
+    },
+    {
+        "id": "61d9cbe6e8dd9dd1",
+        "type": "inject",
+        "z": "b49b968cd042191b",
+        "name": "TempSensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "TempSensorData2",
+        "payload": "20",
+        "payloadType": "str",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "16661949f18a1c92"
+            ]
+        ]
+    },
+    {
+        "id": "d9b2cf32700ebef2",
+        "type": "mqtt out",
+        "z": "b49b968cd042191b",
+        "name": "PubTemp",
+        "topic": "TempSensorData2",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "71e366b4088e1fb7",
+        "x": 480,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "16661949f18a1c92",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "function 7",
+        "func": "msg.payload = 25+(Math.random());\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "d9b2cf32700ebef2"
+            ]
+        ]
+    },
+    {
+        "id": "0ea0667d43e4b03d",
+        "type": "inject",
+        "z": "b49b968cd042191b",
+        "name": "HumiditySensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "HumidityValue2",
+        "payload": "80",
+        "payloadType": "str",
+        "x": 170,
+        "y": 720,
+        "wires": [
+            [
+                "d0e6496c2b9109ef"
+            ]
+        ]
+    },
+    {
+        "id": "d0e6496c2b9109ef",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "function 8",
+        "func": "msg.payload = 80+(Math.random()*2);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 780,
+        "wires": [
+            [
+                "8f01c5a4b66b8132"
+            ]
+        ]
+    },
+    {
+        "id": "8f01c5a4b66b8132",
+        "type": "mqtt out",
+        "z": "b49b968cd042191b",
+        "name": "",
+        "topic": "HumidityValue2",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "71e366b4088e1fb7",
+        "x": 500,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "15fb2107582664a6",
+        "type": "mqtt in",
+        "z": "b49b968cd042191b",
+        "name": "",
+        "topic": "HumidityValue2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "71e366b4088e1fb7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 700,
+        "y": 820,
+        "wires": [
+            [
+                "312d4b056b5c3768",
+                "63e71080635af001",
+                "77a3ce7aa1d901b5"
+            ]
+        ]
+    },
+    {
+        "id": "312d4b056b5c3768",
+        "type": "ui_gauge",
+        "z": "b49b968cd042191b",
+        "name": "Air Humitidy (Sensor 10)",
+        "group": "2e25f2a53aa3db9d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Air Humitidy (Sensor 10)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#fff7a3",
+            "#afafff",
+            "#0000ff"
+        ],
+        "seg1": "40",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "8752e09ffe8473eb",
+        "type": "mysql",
+        "z": "b49b968cd042191b",
+        "mydb": "df91fee14de7c085",
+        "name": "SendData to base",
+        "x": 1110,
+        "y": 300,
+        "wires": [
+            [
+                "17d1054b9a53dbd2"
+            ]
+        ]
+    },
+    {
+        "id": "c85cdc469ec4e061",
+        "type": "inject",
+        "z": "b49b968cd042191b",
+        "name": "SoilTempSensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SoilTemp2",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 290,
+        "y": 1280,
+        "wires": [
+            [
+                "d9e7fceead1d1026"
+            ]
+        ]
+    },
+    {
+        "id": "d9e7fceead1d1026",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "function 9",
+        "func": "msg.payload = 25+(Math.random());\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1320,
+        "wires": [
+            [
+                "38a2e82e2291b323"
+            ]
+        ]
+    },
+    {
+        "id": "38a2e82e2291b323",
+        "type": "mqtt out",
+        "z": "b49b968cd042191b",
+        "name": "PublishSoilTemp",
+        "topic": "SoilTemp2",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "71e366b4088e1fb7",
+        "x": 670,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "743361341ab8d651",
+        "type": "mqtt in",
+        "z": "b49b968cd042191b",
+        "name": "GetSoilTemp",
+        "topic": "SoilTemp2",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "71e366b4088e1fb7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 890,
+        "y": 1360,
+        "wires": [
+            [
+                "89f90d3ae3a61849",
+                "36f3aaf4c7779f6d",
+                "6253e346662f2a47"
+            ]
+        ]
+    },
+    {
+        "id": "89f90d3ae3a61849",
+        "type": "ui_gauge",
+        "z": "b49b968cd042191b",
+        "name": "Soil Tempature (Sensor 13)",
+        "group": "1c873fce035fc86d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Soil Tempature (Sensor 13)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-15",
+        "max": "40",
+        "colors": [
+            "#0c00b3",
+            "#00e62e",
+            "#ca3838"
+        ],
+        "seg1": "5",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 1160,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "ba431fb896fffeee",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Update Sensor9",
+        "func": "//Get sensors data from join node\nvar tempSensorData =msg.payload;\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+tempSensorData+\"where sensor_id = 9;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 300,
+        "wires": [
+            [
+                "8752e09ffe8473eb"
+            ]
+        ]
+    },
+    {
+        "id": "93af208e8bb2af50",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "function 10",
+        "func": "msg.payload = 30+(Math.random()*2);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1740,
+        "wires": [
+            [
+                "63bd903f128f3702"
+            ]
+        ]
+    },
+    {
+        "id": "0348b988bce50e88",
+        "type": "inject",
+        "z": "b49b968cd042191b",
+        "name": "SoilHumiSensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SoilHumi2",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 290,
+        "y": 1700,
+        "wires": [
+            [
+                "93af208e8bb2af50"
+            ]
+        ]
+    },
+    {
+        "id": "63bd903f128f3702",
+        "type": "mqtt out",
+        "z": "b49b968cd042191b",
+        "name": "PublishHumitidyTemp",
+        "topic": "SoilHumi2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "71e366b4088e1fb7",
+        "x": 680,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "fd6258c7f51b3af3",
+        "type": "mqtt in",
+        "z": "b49b968cd042191b",
+        "name": "GetSoilHumi",
+        "topic": "SoilHumi2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "71e366b4088e1fb7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 890,
+        "y": 1780,
+        "wires": [
+            [
+                "ac03685f4d798a55",
+                "d6a1f0828c65b3a4",
+                "092a790d800f8918",
+                "6737ea19eae7245b"
+            ]
+        ]
+    },
+    {
+        "id": "ac03685f4d798a55",
+        "type": "ui_gauge",
+        "z": "b49b968cd042191b",
+        "name": "Soil Humitidy (Sensor 14)",
+        "group": "1c873fce035fc86d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Soil Humitidy (Sensor 14)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#e4ff1a",
+            "#00e60f",
+            "#593acb"
+        ],
+        "seg1": "40",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 1150,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "03398392bba91f84",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Deviation 2C",
+        "func": "//Standar deviation 2 celsious\nmsg.payload+=(Math.random()*4-2);\n\n//Get sensors data\nvar tempSensorData =msg.payload;\nif(tempSensorData>46){\n    tempSensorData=46;\n}\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+tempSensorData+\"where sensor_id = 2;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 420,
+        "wires": [
+            [
+                "a73e18a5ec612a8e",
+                "8d5eb34f66c1183c"
+            ]
+        ]
+    },
+    {
+        "id": "a73e18a5ec612a8e",
+        "type": "ui_gauge",
+        "z": "b49b968cd042191b",
+        "name": "",
+        "group": "eb8b4c719c3703fa",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Air Tempature (Sensor11)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-15",
+        "max": "45",
+        "colors": [
+            "#0000ff",
+            "#00ff00",
+            "#ff0000"
+        ],
+        "seg1": "5",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 1130,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "63e71080635af001",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Deviation 2C",
+        "func": "//Standar deviation 2 celsious\nmsg.payload+=(Math.random()*4-2);\n\n//Get sensors data\nvar tempSensorData =msg.payload;\n//Check\nif(tempSensorData>100){\n    tempSensorData=100;\n}\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+tempSensorData+\"where sensor_id = 2;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 880,
+        "wires": [
+            [
+                "a738d2077b2b6bae",
+                "19c62014accaf14a"
+            ]
+        ]
+    },
+    {
+        "id": "a738d2077b2b6bae",
+        "type": "ui_gauge",
+        "z": "b49b968cd042191b",
+        "name": "Air Humitidy (Sensor 12)",
+        "group": "eb8b4c719c3703fa",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Air Humitidy (Sensor 12)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#fff7a3",
+            "#afafff",
+            "#0000ff"
+        ],
+        "seg1": "40",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 1130,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "36f3aaf4c7779f6d",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Deviation 2C",
+        "func": "//Standar deviation 2 celsious\nmsg.payload+=(Math.random()*4-2);\n\n//Get sensors data\nvar tempSensorData =msg.payload;\n//check data\nif (tempSensorData>=35){\n    tempSensorData=35;\n}\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+tempSensorData+\"where sensor_id = 2;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1440,
+        "wires": [
+            [
+                "d6703e9722c3eb49",
+                "1f7f77d649bd51b9"
+            ]
+        ]
+    },
+    {
+        "id": "d6a1f0828c65b3a4",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Deviation 2C",
+        "func": "//Standar deviation 2 celsious\nmsg.payload+=(Math.random()*4-2);\n\n//Get sensors data\nvar tempSensorData =msg.payload;\n//Check data\nif(tempSensorData>100){\n    tempSensorData=100;\n}\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+tempSensorData+\"where sensor_id = 2;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1860,
+        "wires": [
+            [
+                "7699128ef08c878a",
+                "edcbacf04ebf6ee9"
+            ]
+        ]
+    },
+    {
+        "id": "d6703e9722c3eb49",
+        "type": "ui_gauge",
+        "z": "b49b968cd042191b",
+        "name": "Soil Tempature (Sensor 15)",
+        "group": "223ce48f726f08a5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Soil Tempature (Sensor 15)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-15",
+        "max": "40",
+        "colors": [
+            "#0c00b3",
+            "#00e62e",
+            "#ca3838"
+        ],
+        "seg1": "5",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 1340,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "7699128ef08c878a",
+        "type": "ui_gauge",
+        "z": "b49b968cd042191b",
+        "name": "Soil Humitidy (Sensor 16)",
+        "group": "223ce48f726f08a5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Soil Humitidy (Sensor 16)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#e4ff1a",
+            "#00e60f",
+            "#593acb"
+        ],
+        "seg1": "40",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 1350,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "17d1054b9a53dbd2",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 10",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1340,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8d5eb34f66c1183c",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Update Sensor11",
+        "func": "//Get sensors data from join node\nvar tempSensorData =msg.payload;\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+tempSensorData+\"where sensor_id = 11;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 500,
+        "wires": [
+            [
+                "bbb416f4a8247e8a"
+            ]
+        ]
+    },
+    {
+        "id": "bbb416f4a8247e8a",
+        "type": "mysql",
+        "z": "b49b968cd042191b",
+        "mydb": "df91fee14de7c085",
+        "name": "SendData to base",
+        "x": 1310,
+        "y": 500,
+        "wires": [
+            [
+                "a1b585a5c46bdaf5"
+            ]
+        ]
+    },
+    {
+        "id": "a1b585a5c46bdaf5",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1540,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "77a3ce7aa1d901b5",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Update Sensor10",
+        "func": "//Get sensors data from join node\nvar humiSensorData =msg.payload;\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+humiSensorData+\"where sensor_id = 10;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 760,
+        "wires": [
+            [
+                "2f823f557f9cab41"
+            ]
+        ]
+    },
+    {
+        "id": "2f823f557f9cab41",
+        "type": "mysql",
+        "z": "b49b968cd042191b",
+        "mydb": "df91fee14de7c085",
+        "name": "SendData to base",
+        "x": 1130,
+        "y": 760,
+        "wires": [
+            [
+                "1b43353e88c80c1c"
+            ]
+        ]
+    },
+    {
+        "id": "1b43353e88c80c1c",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1360,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "19c62014accaf14a",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Update Sensor12",
+        "func": "//Get sensors data from join node\nvar humiSensorData =msg.payload;\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+humiSensorData+\"where sensor_id = 12;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 960,
+        "wires": [
+            [
+                "5bcd5aea6e206527"
+            ]
+        ]
+    },
+    {
+        "id": "5bcd5aea6e206527",
+        "type": "mysql",
+        "z": "b49b968cd042191b",
+        "mydb": "df91fee14de7c085",
+        "name": "SendData to base",
+        "x": 1310,
+        "y": 960,
+        "wires": [
+            [
+                "d624cd8cb0ce9c10"
+            ]
+        ]
+    },
+    {
+        "id": "d624cd8cb0ce9c10",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 13",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1540,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "6253e346662f2a47",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Update Sensor13",
+        "func": "//Get sensors data from join node\nvar tempSensorData =msg.payload;\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+tempSensorData+\"where sensor_id = 13;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 1340,
+        "wires": [
+            [
+                "52d61078a8ce6a90"
+            ]
+        ]
+    },
+    {
+        "id": "52d61078a8ce6a90",
+        "type": "mysql",
+        "z": "b49b968cd042191b",
+        "mydb": "df91fee14de7c085",
+        "name": "SendData to base",
+        "x": 1330,
+        "y": 1340,
+        "wires": [
+            [
+                "d8763755a5a6f671"
+            ]
+        ]
+    },
+    {
+        "id": "d8763755a5a6f671",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 14",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1560,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "1f7f77d649bd51b9",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Update Sensor15",
+        "func": "//Get sensors data from join node\nvar tempSensorData =msg.payload;\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+tempSensorData+\"where sensor_id = 15;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1310,
+        "y": 1520,
+        "wires": [
+            [
+                "261f722d96880738"
+            ]
+        ]
+    },
+    {
+        "id": "261f722d96880738",
+        "type": "mysql",
+        "z": "b49b968cd042191b",
+        "mydb": "df91fee14de7c085",
+        "name": "SendData to base",
+        "x": 1510,
+        "y": 1520,
+        "wires": [
+            [
+                "28ef0663391d67ce"
+            ]
+        ]
+    },
+    {
+        "id": "28ef0663391d67ce",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 15",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1740,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "092a790d800f8918",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Update Sensor14",
+        "func": "//Get sensors data from join node\nvar humiSensorData =msg.payload;\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+humiSensorData+\"where sensor_id = 14;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 1780,
+        "wires": [
+            [
+                "64717413f1453841"
+            ]
+        ]
+    },
+    {
+        "id": "64717413f1453841",
+        "type": "mysql",
+        "z": "b49b968cd042191b",
+        "mydb": "df91fee14de7c085",
+        "name": "SendData to base",
+        "x": 1330,
+        "y": 1780,
+        "wires": [
+            [
+                "66c9af2954296875"
+            ]
+        ]
+    },
+    {
+        "id": "66c9af2954296875",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 16",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1560,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "edcbacf04ebf6ee9",
+        "type": "function",
+        "z": "b49b968cd042191b",
+        "name": "Update Sensor16",
+        "func": "//Get sensors data from join node\nvar humiSensorData =msg.payload;\n//Set query to topic\nmsg.topic = \"update Sensors set sensor_data =\"+humiSensorData+\"where sensor_id = 16;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 1940,
+        "wires": [
+            [
+                "e3bd395e69239cee"
+            ]
+        ]
+    },
+    {
+        "id": "e3bd395e69239cee",
+        "type": "mysql",
+        "z": "b49b968cd042191b",
+        "mydb": "df91fee14de7c085",
+        "name": "SendData to base",
+        "x": 1530,
+        "y": 1940,
+        "wires": [
+            [
+                "a00a1c270702cb88"
+            ]
+        ]
+    },
+    {
+        "id": "a00a1c270702cb88",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 17",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1760,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "6737ea19eae7245b",
+        "type": "debug",
+        "z": "b49b968cd042191b",
+        "name": "debug 42",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "2e25f2a53aa3db9d",
+        "type": "ui_group",
+        "name": "GeorgeAirController21",
+        "tab": "f2bcf2f970c842ac",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "71e366b4088e1fb7",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "df91fee14de7c085",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "SmartAgricaltureSchema",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "1c873fce035fc86d",
+        "type": "ui_group",
+        "name": "GeorgeSoilController21",
+        "tab": "f2bcf2f970c842ac",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "eb8b4c719c3703fa",
+        "type": "ui_group",
+        "name": "GeorgeAirController22",
+        "tab": "f2bcf2f970c842ac",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "223ce48f726f08a5",
+        "type": "ui_group",
+        "name": "GeorgeSoilController22",
+        "tab": "f2bcf2f970c842ac",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f2bcf2f970c842ac",
+        "type": "ui_tab",
+        "name": "GeorgeField2",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
