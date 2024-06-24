@@ -3,4 +3,4 @@ QuickDBD is an online platform where you can design a relational DataBase, easil
 
 The link for this tool is: https://www.quickdatabasediagrams.com/
 
-For more about QuickDBD, a useful tutorial is this:  
+For more about QuickDBD, a useful tutorial is this: https://www.youtube.com/watch?v=MiAl2mQ718s, It's part of a tutorial that used the specific platform. 
