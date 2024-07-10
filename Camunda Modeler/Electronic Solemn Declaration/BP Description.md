@@ -4,3 +4,4 @@ This is a Process where a citizen can complete a solemn declaration from the web
 More information about this process can be found at https://en.mitos.gov.gr/index.php/%CE%94%CE%94:Solemn_declaration_and_electronic_solemn_declaration.
 
 !Notice, that the address has the Solemn declaration and the electronic solemn declaration, but on this repository, we focus on the electronic process.
+!!Notice, there are minor changes to the process for correct modeling in the Collaborative Model.
